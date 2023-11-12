@@ -7,10 +7,10 @@ orbs:
 jobs:
   build-test:
     docker:
-      - image: cimg/python:3.8.4
+      - image: cimg/python:3.12.0
         environment:
           DATABASE_URL: postgresql://root@localhost/circle_test?sslmode=disable
-      - image: circleci/postgres:9.6.2
+      - image: cimg/postgres:16.0.0
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: circle_test
