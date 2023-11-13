@@ -21,7 +21,9 @@ jobs:
           pkg-manager: pipenv
       - run:
           name: Run command
-          command: python -m pytest
+          command: | 
+            pip install -r requirements.txt
+            python -m pytest
 
 workflows:
   my-workflow:
