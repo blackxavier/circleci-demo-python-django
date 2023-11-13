@@ -18,13 +18,20 @@ jobs:
     steps:
       - checkout
       - python/install-packages:
-          pkg-manager: pipenv
+          pkg-manager: venv
       - run:
-          name: Run command
-          command: | 
+          name: Install Dependencies
+          command: |
+            python -m venv venv
+            . venv/bin/activate
             pip install -r requirements.txt
-            pip install pytest
-            pipenv run python manage.py runserver
+
+      - run:
+          name: Run Tests
+          command: |
+            . venv/bin/activate
+            python -m pytest
+            
 
 workflows:
   my-workflow:
