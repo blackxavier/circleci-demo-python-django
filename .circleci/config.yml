@@ -17,11 +17,17 @@ jobs:
           POSTGRES_DB: circle_test
     steps:
       - checkout
+      - restore_cache:
+          key: arinze-cache
       - python/install-packages
       - run:
           name: Install Dependencies
           command: |
             pip install -r requirements.txt
+      - save_cache:
+          paths:
+            - "python-apps"
+          key: arinze-cache
             
 
 workflows:
