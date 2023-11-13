@@ -21,7 +21,7 @@ jobs:
           pkg-manager: pipenv
       - run:
           name: Run command
-          command: pipenv run python manage.py test
+          command: python -m pytest
 
 workflows:
   my-workflow:
