@@ -17,19 +17,12 @@ jobs:
           POSTGRES_DB: circle_test
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: venv
+      - python/install-packages
       - run:
           name: Install Dependencies
           command: |
-            python -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
-
-      - run:
-          name: Run Tests
-          command: |
-            . venv/bin/activate
             python -m pytest
             
 
